@@ -41,6 +41,8 @@ INSTALLED_APPS = (
     # custom
     'core',
     'users',
+    'links',
+    'votes',
     # third party
     'allauth',
     'allauth.account',
