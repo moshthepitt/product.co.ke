@@ -14,8 +14,8 @@ User = settings.AUTH_USER_MODEL
 class Vote(models.Model):
     created_on = models.DateTimeField(_("Created on"), auto_now_add=True)
     updated_on = models.DateTimeField(_("Updated on"), auto_now=True)
-    user = models.ForeignKey(User, verbose_name=_("User"))
-    link = models.ForeignKey(Link, verbose_name=_("Link"))
+    user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.CASCADE)
+    link = models.ForeignKey(Link, verbose_name=_("Link"), on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = _("Vote")

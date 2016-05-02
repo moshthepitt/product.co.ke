@@ -22,9 +22,10 @@ class LinkManager(models.Manager):
 class Link(models.Model):
     created_on = models.DateTimeField(_("Created on"), auto_now_add=True)
     updated_on = models.DateTimeField(_("Updated on"), auto_now=True)
-    user = models.ForeignKey(User, verbose_name=_("User"))
-    link = models.URLField(_("Link"), max_length=2083, blank=False)
-    description = models.TextField(_("Description"), blank=True, default="", help_text=_(
+    user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.PROTECT)
+    title = models.CharField(_("Title"), max_length=255, blank=False)
+    link = models.URLField(_("Link"), max_length=2083, blank=False, unique=True)
+    description = models.TextField(_("Description"), blank=False, default="", help_text=_(
         "A short description.  Please limit to 300 cahracters."))
     active = models.BooleanField(_("Active"), default=True)
     ghost = models.BooleanField(_("Ghost"), default=False)  # used to fight spam
@@ -34,6 +35,7 @@ class Link(models.Model):
     class Meta:
         verbose_name = _("Link")
         verbose_name_plural = _("Links")
+        ordering = ['-created_on']
 
     def __str__(self):
         return self.link
@@ -44,4 +46,4 @@ class Link(models.Model):
 
     @property
     def domain(self):
-        return urlparse(self.url).netloc
+        return urlparse(self.link).netloc

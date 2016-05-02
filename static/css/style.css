@@ -10,3 +10,7 @@
 .account .form-control {
 	max-width: 600px
 }
+
+.domain {
+	margin-top:-5px;
+}

@@ -1,0 +1,6 @@
+{% load i18n %}
+{% for link in links %}
+  {% include 'links/snippets/link.html' %}
+{% empty %}
+  <p>{% trans "Nothing here" %}</p>
+{% endfor %}
