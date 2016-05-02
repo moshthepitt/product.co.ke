@@ -2,3 +2,11 @@
 	min-height: 100vh;
 	overflow: hidden;
 }
+
+.account {
+	padding-top:0px;
+}
+
+.account .form-control {
+	max-width: 600px
+}

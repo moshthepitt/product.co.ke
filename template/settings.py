@@ -46,7 +46,7 @@ INSTALLED_APPS = (
     # third party
     'allauth',
     'allauth.account',
-    # 'allauth.socialaccount',
+    'allauth.socialaccount',
     # 'allauth.socialaccount.providers.facebook',
     # 'allauth.socialaccount.providers.twitter',
     'crispy_forms',
