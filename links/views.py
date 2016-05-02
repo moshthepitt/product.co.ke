@@ -1,5 +1,6 @@
 from django.views.generic.edit import CreateView
 from django.views.generic.edit import UpdateView
+from django.views.generic.detail import DetailView
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext as _
 from django.contrib import messages
@@ -30,3 +31,8 @@ class LinkAdd(CreateView):
         form.instance.user = self.request.user
         messages.add_message(self.request, messages.SUCCESS, _('Successfully added, it should be live shortly'))
         return super(LinkAdd, self).form_valid(form)
+
+
+class LinkView(DetailView):
+    template_name = "links/link.html"
+    model = Link
