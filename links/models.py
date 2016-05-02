@@ -24,7 +24,7 @@ class Link(models.Model):
     updated_on = models.DateTimeField(_("Updated on"), auto_now=True)
     user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.PROTECT)
     title = models.CharField(_("Title"), max_length=255, blank=False)
-    link = models.URLField(_("Link"), max_length=2083, blank=False, unique=True)
+    link = models.URLField(_("URL"), max_length=2083, blank=False, unique=True)
     description = models.TextField(_("Description"), blank=False, default="", help_text=_(
         "A short description.  Please limit to 300 cahracters."))
     active = models.BooleanField(_("Active"), default=True)
