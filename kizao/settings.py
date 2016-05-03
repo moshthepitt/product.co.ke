@@ -74,8 +74,8 @@ MIDDLEWARE_CLASSES = (
 )
 
 
-ROOT_URLCONF = 'template.urls'
-WSGI_APPLICATION = 'template.wsgi.application'
+ROOT_URLCONF = 'kizao.urls'
+WSGI_APPLICATION = 'kizao.wsgi.application'
 
 
 # Internationalization
