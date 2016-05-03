@@ -35,7 +35,7 @@
         <header id="header" class="header navbar-fixed-top">  
             <div class="container">       
                 <h1 class="logo">
-                    <a href="index.html"><span class="highlight">Dev</span>Studio</a>
+                    <a href="index.html"><span class="highlight">K</span>izao</a>
                 </h1><!--//logo-->
                 <nav class="main-nav navbar-right" role="navigation">
                     <div class="navbar-header">
@@ -49,7 +49,16 @@
                     <div id="navbar-collapse" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li class="nav-item"><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
-                            <li class="nav-item"><a href="#">{% trans "About" %}</a></li>           
+                            <li class="nav-item"><a href="#">{% trans "About" %}</a></li>  
+                            {% if request.user.is_authenticated %}  
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">{% trans "Account" %} <i class="fa fa-angle-down"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{% url 'account_change_password' %}">{% trans "Change Password" %}</a></li>
+                                        <li><a href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>           
+                                    </ul>
+                                </li><!--//dropdown-->  
+                            {% endif %}      
                         </ul><!--//nav-->
                     </div><!--//navabr-collapse-->
                 </nav><!--//main-nav-->
