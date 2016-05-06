@@ -2,6 +2,7 @@ from django.views.generic.edit import CreateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
+from django.views.generic.edit import DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext as _
 from django.contrib import messages
@@ -49,3 +50,12 @@ class UserLinksView(ListView):
 class LinkView(DetailView):
     template_name = "links/link.html"
     model = Link
+
+
+class UserLinkDelete(DeleteView):
+    model = Link
+    success_url = reverse_lazy('links:user_links')
+
+    def form_valid(self, form):
+        messages.add_message(self.request, messages.SUCCESS, _('Successfully deleted!'))
+        return super(UserLinkDelete, self).form_valid(form)
