@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load staticfiles  i18n %}
+{% block extracss %}
+	<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap-social.css' %}" />
+{% endblock %}
+{% block title %}{{ object.title }} | Kizao{% endblock %}
+
+{% block meta_keywords %}<meta name="keywords" content="{{ object.title }}" />{% endblock %}
+{% block meta_description %}<meta name="description" content="{{ object.description|truncatechars:150 }}" />{% endblock %}
+{% block other_meta %}
+	<!-- Open Graph data -->
+	<meta property="og:title" content="{{ object.title }}" />
+	<meta property="og:type" content="article" />
+	<meta property="og:description" content="{{ object.description|truncatechars:150 }}" /> 
+	<meta property="og:site_name" content="{{site.name}}" />
+	<meta property="og:url" content="https://{{site.domain}}{{ object.get_absolute_url }}" />
+	<meta property="fb:app_id" content="1018676454868919"/>
+{% endblock %}
+{% block main_content %}
+    <article class="post">
+        <h2 class="title">{{object.title}}</h2>
+        <div class="meta">
+            <ul class="meta-list list-inline">                                       
+            	<li class="post-time post_date date updated"><i class="fa fa-calendar"></i> {{object.created_on|date:"j M, Y"}}</li>
+            	<li class="post-author"><i class="fa fa-user"></i> <a href="#">{{object.user.username}}</a></li>
+        	</ul><!--//meta-list-->                           	
+        </div><!--meta-->
+        <div class="content">
+            {{object.description}}
+        </div>
+        <div class="share-container">
+            <span class="label">share this:</span>
+
+            <div class="row">
+            	<div class="col-md-6 col-sm-6 maring-bottom-row">
+            		<a href="https://facebook.com/sharer.php?u=https://{{site.domain}}{{ object.get_absolute_url }}" class="btn btn-block btn-facebook" target="_blank">
+            			<i class="fa fa-facebook"></i> {% trans "Share on Facebook" %}
+            		</a>
+            	</div>
+            	<div class="col-md-6 col-sm-6 maring-bottom-row">
+            		<a href="https://twitter.com/intent/tweet?url=https://{{site.domain}}{{ object.get_absolute_url }}&amp;text={{object.title}}&amp;hashtags=BuzzBored" class="btn btn-block btn-twitter" target="_blank">
+            			<i class="fa fa-twitter"></i> {% trans "Share on Twitter" %}
+            		</a>
+            	</div>
+            </div>
+        </div><!--//share-container-->    
+        <div class="clearfix"></div>
+		<div id="comment-area" class="comment-area">
+		    <div class="comment-container">        				    
+			    <div id="disqus_thread"></div>
+		    </div><!--//comments-container-->   				    
+		</div><!--//comment-area-->                                           
+    </article><!--//post-->   
+{% endblock %}
+
+{% block extrajs %}
+	{% if not DEBUG_MODE %}
+	<script>
+	var disqus_config = function () {
+		this.page.url = "https://{{site.domain}}{{ object.get_absolute_url }}"; 
+		this.page.identifier = "{{object.pk}}"; 
+	};	
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+
+	s.src = '//kizao.disqus.com/embed.js';
+
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	{% endif %}	
+{% endblock %}

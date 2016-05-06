@@ -3,7 +3,7 @@
 <article class="item">                
     <div class="row">
         <h3 class="post-title col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-          <a href="blog-post.html">{{link.title}}</a>
+          <a href="{{link.get_absolute_url}}">{{link.title}}</a>
         </h3>
         <div class="clearfix"></div>
         <div class="meta col-md-2 col-sm-3 col-xs-12 text-right">
@@ -20,7 +20,7 @@
               <div class="domain">{{link.domain}}</div>
               <div class="desc">
                   {{link.description|truncatechars:180}}
-                  <a class="read-more" href="blog-post.html">{% trans "Read more" %} <i class="fa fa-long-arrow-right"></i></a>
+                  <a class="read-more" href="{{link.get_absolute_url}}">{% trans "Read more" %} <i class="fa fa-long-arrow-right"></i></a>
               </div><!--//desc-->
             </div><!--//content-->
         </div><!--//content-wrapper-->   

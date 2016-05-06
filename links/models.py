@@ -3,6 +3,7 @@ from urlparse import urlparse
 
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.conf import settings
 
@@ -40,9 +41,8 @@ class Link(models.Model):
     def __str__(self):
         return self.link
 
-    @models.permalink
     def get_absolute_url(self):
-        return ('')
+        return reverse('links:link_detail', args=[self.pk])
 
     @property
     def domain(self):
