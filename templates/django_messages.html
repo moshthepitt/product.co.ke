@@ -1,0 +1,11 @@
+{% load i18n %}
+{% if messages %}
+  <div class="container">
+    {% for message in messages %}
+    <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %} alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">{% trans "Close" %}</span></button>
+      {{ message }}
+    </div>
+    {% endfor %}
+  </div>
+{% endif %}
