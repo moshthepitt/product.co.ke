@@ -54,6 +54,7 @@
                                 <li class="nav-item dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">{% trans "Account" %} <i class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu">
+                                        <li><a href="{% url 'links:user_links' %}">{% trans "My Submissions" %}</a></li>
                                         <li><a href="{% url 'account_change_password' %}">{% trans "Change Password" %}</a></li>
                                         <li><a href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>           
                                     </ul>

@@ -1,6 +1,7 @@
 from django.views.generic.edit import CreateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext as _
 from django.contrib import messages
@@ -31,6 +32,18 @@ class LinkAdd(CreateView):
         form.instance.user = self.request.user
         messages.add_message(self.request, messages.SUCCESS, _('Successfully added, it should be live shortly'))
         return super(LinkAdd, self).form_valid(form)
+
+
+class UserLinksView(ListView):
+    model = Link
+    template_name = "links/my_links.html"
+
+    def get_queryset(self):
+        """Returns Polls that belong to the current user"""
+        return Link.objects.active().filter(user=self.request.user)
+
+    def dispatch(self, *args, **kwargs):
+        return super(UserLinksView, self).dispatch(*args, **kwargs)
 
 
 class LinkView(DetailView):

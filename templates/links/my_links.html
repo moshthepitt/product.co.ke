@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block all_content %} 
+  <!-- ******Blog list Section****** -->
+  <section id="blog-list" class="blog-list section">
+      <div class="container">
+        {% include 'links/snippets/links.html' with links=object_list %}
+      </div><!--//container-->
+  </section><!--//blog-list--> 
+{% endblock %}
