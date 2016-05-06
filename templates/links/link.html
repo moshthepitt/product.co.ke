@@ -28,6 +28,15 @@
         <div class="content">
             {{object.description}}
         </div>
+        {% if object.user == request.user %}
+        <div class="share-container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 margin-top">
+                    <a href="" class="btn btn-danger btn-block">Delete</a>            
+                </div>
+            </div>
+        </div>
+        {% endif %}
         <div class="share-container">
             <span class="label">share this:</span>
 
@@ -52,7 +61,6 @@
 		</div><!--//comment-area-->                                           
     </article><!--//post-->   
 {% endblock %}
-
 {% block extrajs %}
 	{% if not DEBUG_MODE %}
 	<script>
