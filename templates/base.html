@@ -69,18 +69,7 @@
 
     <div class="the-page">
       
-      {% block messages %}
-        {% if messages %}
-          <div class="container">
-            {% for message in messages %}
-            <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %} alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">{% trans "Close" %}</span></button>
-              {{ message }}
-            </div>
-            {% endfor %}
-          </div>
-        {% endif %}        
-      {% endblock %}
+      {% block messages %}<div id="django-messages-container"></div>{% endblock %}
 
       {% block all_content %}
         <div class="blog-post-wrapper container">            
@@ -112,6 +101,28 @@
     <script src="{% static 'js/scripts.js' %}"></script>   
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+    <script>
+      {% if DEBUG_MODE %}
+      (function() {
+        var nTimer = setInterval(function() {
+          if (window.jQuery) {
+            var messages_url = "{% url 'django_messages' %}";
+            $("#django-messages-container" ).load(messages_url, function(){
+              // do nothing, for now
+            });
+            clearInterval(nTimer);
+          }
+        }, 100);
+      })();
+      {% else %}
+        $(document).ready(function() {
+          var messages_url = "{% url 'django_messages' %}";
+          $("#django-messages-container" ).load(messages_url, function(){
+            // do nothing, for now
+          });
+        });
+      {% endif %}      
+    </script>
     {% block extrajs %}{% endblock %}
     {% endcompress %}
 
