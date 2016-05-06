@@ -14,7 +14,7 @@
     {% block other_meta %}{% endblock %}    
     <link rel="Shortcut Icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" />
 
-    {% compress css %}
+    {% compress css inline %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'devstudio/style.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />   
