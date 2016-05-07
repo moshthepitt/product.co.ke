@@ -21,8 +21,8 @@
         <h2 class="title">{{object.title}}</h2>
         <div class="meta">
             <ul class="meta-list list-inline">                                       
-            	<li class="post-time post_date date updated"><i class="fa fa-calendar"></i> {{object.created_on|date:"j M, Y"}}</li>
-            	<li class="post-author"><i class="fa fa-user"></i> <a href="#">{{object.user.username}}</a></li>
+            	<li class="post-time post_date date updated"> {{object.created_on|date:"j M, Y"}}</li>
+            	<li class="post-author"><a href="#">{{object.user.username}}</a> |  <a href="{{link.link}}">{{link.domain}}</a></li>
         	</ul><!--//meta-list-->                           	
         </div><!--meta-->
         <div class="content">
@@ -32,7 +32,7 @@
         <div class="share-container">
             <div class="row">
                 <div class="col-md-6 col-sm-6 margin-top">
-                    <a href="{% url 'links:user_delete_link' object.pk %}" class="btn btn-danger btn-block">{% trans "Delete" %}</a>            
+                    <a href="{% url 'links:user_delete_link' object.pk %}" class="btn btn-danger btn-block">{% trans "Delete" %}</a>
                 </div>
             </div>
         </div>
