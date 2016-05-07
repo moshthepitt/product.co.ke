@@ -1,26 +1,16 @@
-{% load i18n %}
+{% load i18n %}{% load humanize %}
 
 <article class="item">                
     <div class="row">
-        <h3 class="post-title col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
+        <h3 class="post-title col-md-12 col-sm-12 col-xs-12 col-md-push-0 col-sm-push-0 col-xs-push-0">
           <a href="{{link.get_absolute_url}}">{{link.title}}</a>
         </h3>
-        <div class="clearfix"></div>
-        <div class="meta col-md-2 col-sm-3 col-xs-12 text-right">
-            <ul class="meta-list list-unstyled">                                       
-              <li class="post-time post_date date updated">
-                <span class="date">{{link.created_on|date:"j"}}</span>
-                <span class="month">{{link.created_on|date:"M"}}</span>
-              </li>  
-              <li class="post-author">{{link.user.username}}</li>
-          </ul><!--//meta-list-->                             
-        </div><!--//meta-list-->                    
-        <div class="content-wrapper col-md-10 col-sm-9 col-xs-12">
+        <div class="clearfix"></div>                            
+        <div class="content-wrapper col-md-12 col-sm-12 col-xs-12">
             <div class="content">
-              <div class="domain">{{link.domain}}</div>
+              <div class="domain text-muted"><a href="{{link.link}}">{{link.domain}}</a> | by {{link.user.username}} {{link.created_on|naturaltime}}</div>
               <div class="desc">
                   {{link.description|truncatechars:180}}
-                  <a class="read-more" href="{{link.get_absolute_url}}">{% trans "Read more" %} <i class="fa fa-long-arrow-right"></i></a>
               </div><!--//desc-->
             </div><!--//content-->
         </div><!--//content-wrapper-->   
