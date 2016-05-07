@@ -38,9 +38,9 @@ class LinkAdd(CreateView):
 class UserLinksView(ListView):
     model = Link
     template_name = "links/my_links.html"
+    paginate_by = 50
 
     def get_queryset(self):
-        """Returns Polls that belong to the current user"""
         return Link.objects.active().filter(user=self.request.user)
 
     def dispatch(self, *args, **kwargs):

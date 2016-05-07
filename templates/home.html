@@ -4,7 +4,8 @@
   <!-- ******Blog list Section****** -->
   <section id="blog-list" class="blog-list section">
       <div class="container">
-        {% include 'links/snippets/links.html' %}
+        {% include 'links/snippets/links.html' with links=object_list %}
+        {% include 'pagination.html' %}
       </div><!--//container-->
   </section><!--//blog-list--> 
 {% endblock %}
