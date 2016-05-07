@@ -8,7 +8,7 @@
         <div class="clearfix"></div>                            
         <div class="content-wrapper col-md-12 col-sm-12 col-xs-12">
             <div class="content">
-              <div class="domain text-muted"><a href="{{link.link}}">{{link.domain}}</a> | by {{link.user.username}} {{link.created_on|naturaltime}}</div>
+              <div class="domain text-muted"><a href="{{link.link}}">{{link.domain}}</a> | {% trans "by" %} {{link.user.username}} {{link.created_on|naturaltime}}</div>
               <div class="desc">
                   {{link.description|truncatechars:180}}
               </div><!--//desc-->

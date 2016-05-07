@@ -9,9 +9,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block meta_keywords %}<meta name="keywords" content="" />{% endblock %}
-    {% block meta_description %}<meta name="description" content="" />{% endblock %}
-    {% block other_meta %}{% endblock %}    
+    {% block meta_keywords %}<meta name="keywords" content="{% trans "Kizao, Kenyan websites, Kenyan apps, Kenyan products" %}" />{% endblock %}
+    {% block meta_description %}<meta name="description" content="{% trans "At Kizao you can find the best new websites, mobile apps, and technology products from Kenya" %}" />{% endblock %}
+    {% block other_meta %}
+        <meta property="og:title" content="{{site.name}}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="{% trans "At Kizao you can find the best new websites, mobile apps, and technology products from Kenya" %}" /> 
+        <meta property="og:site_name" content="{{site.name}}" />
+        <meta property="og:url" content="https://{{site.domain}}" />
+        <meta property="fb:app_id" content="1018676454868919"/>
+    {% endblock %}    
     <link rel="Shortcut Icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" />
 
     {% compress css inline %}
@@ -80,7 +87,14 @@
                 {% block main_content %}{% endblock %}
             </div>
             <aside id="blog-sidebar" class="blog-sidebar col-md-3 col-sm-4 col-xs-12 col-md-offset-1 col-sm-offset-0 col-xs-offset-0">
-              {% block sidebar_content %}{% endblock %}
+                <section class="widget recent-posts">
+                    <h3 class="title">{% trans "Welcome to Kizao" %}</h3>
+                    <p>{% trans "At Kizao you can find the best new websites, mobile apps, and technology products from Kenya" %}</p>
+                </section>
+
+
+                
+                {% block sidebar_content %}{% endblock %}
             </aside><!--//blog-side-bar-->                                        
           </div><!--//blog-entry-->
         </div>

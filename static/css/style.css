@@ -16,7 +16,15 @@
 }
 
 .blog-list {
-    padding: 20px 0;
+    padding: 0px 0;
+}
+
+.blog-post-wrapper {
+    padding-top: 20px;
+}
+
+.blog-list .container {
+    max-width: 750px;
 }
 
 .margin-top {

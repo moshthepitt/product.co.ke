@@ -32,13 +32,13 @@
         <div class="share-container">
             <div class="row">
                 <div class="col-md-6 col-sm-6 margin-top">
-                    <a href="{% url 'links:user_delete_link' object.pk %}" class="btn btn-danger btn-block">Delete</a>            
+                    <a href="{% url 'links:user_delete_link' object.pk %}" class="btn btn-danger btn-block">{% trans "Delete" %}</a>            
                 </div>
             </div>
         </div>
         {% endif %}
         <div class="share-container">
-            <span class="label">share this:</span>
+            <span class="label">{% trans "share this:" %}</span>
 
             <div class="row">
             	<div class="col-md-6 col-sm-6 maring-bottom-row">
