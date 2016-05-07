@@ -57,7 +57,7 @@
                         <ul class="nav navbar-nav">
                             <li class="nav-item"><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
                             <li class="nav-item active"><a href="{% url 'links:link_add' %}">{% trans "Submit" %}</a></li>
-                            <li class="nav-item"><a href="#">{% trans "About" %}</a></li>  
+                            <li class="nav-item"><a href="/about">{% trans "About" %}</a></li>  
                             {% if request.user.is_authenticated %}  
                                 <li class="nav-item dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">{% trans "Account" %} <i class="fa fa-angle-down"></i></a>
