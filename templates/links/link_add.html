@@ -2,11 +2,11 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 
-{% block pagetitle %}{% trans "Add Link" %}{% endblock %}
+{% block title %}{% trans "Submit" %} | Kizao{% endblock %}
 
 {% block all_content %} 
 	<div class="blog-post-wrapper container account">
-		<h3 class="page-title">{% trans "Add Link" %}</h3>
+		<h3 class="page-title">{% trans "Submit" %}</h3>
 		{% crispy form %}
 	</div>
 {% endblock %}
