@@ -3,8 +3,10 @@ from django.views.generic.list import ListView
 
 from links.models import Link
 
+from .mixins import CachePageOnAuthMixin
 
-class HomePageView(ListView):
+
+class HomePageView(ListView, CachePageOnAuthMixin):
     model = Link
     template_name = "home.html"
     paginate_by = 50

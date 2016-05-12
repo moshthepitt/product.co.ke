@@ -7,6 +7,8 @@ from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext as _
 from django.contrib import messages
 
+from core.mixins import CachePageOnAuthMixin
+
 from .models import Link
 from .forms import LinkForm
 
@@ -35,7 +37,7 @@ class LinkAdd(CreateView):
         return super(LinkAdd, self).form_valid(form)
 
 
-class UserLinksView(ListView):
+class UserLinksView(ListView, CachePageOnAuthMixin):
     model = Link
     template_name = "links/my_links.html"
     paginate_by = 50
@@ -47,7 +49,7 @@ class UserLinksView(ListView):
         return super(UserLinksView, self).dispatch(*args, **kwargs)
 
 
-class LinkView(DetailView):
+class LinkView(DetailView, CachePageOnAuthMixin):
     template_name = "links/link.html"
     model = Link
 
