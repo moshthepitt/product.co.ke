@@ -26,7 +26,7 @@
         	</ul><!--//meta-list-->                           	
         </div><!--meta-->
         <div class="content">
-            {{object.description}}
+            {{object.description|linebreaks}}
         </div>
         {% if object.user == request.user and 1 == 2 %}
         <div class="share-container">
