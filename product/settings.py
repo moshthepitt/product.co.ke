@@ -144,6 +144,7 @@ SOCIALACCOUNT_QUERY_EMAIL = True
 EMAIL_CONFIRMATION_DAYS = 14
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
         'SCOPE': ['email', 'public_profile', 'user_friends'],
