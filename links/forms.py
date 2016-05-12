@@ -11,6 +11,12 @@ from .models import Link
 
 
 class LinkForm(forms.ModelForm):
+    description = forms.CharField(
+        max_length=750,
+        help_text=_("A short description.  Please limit to 750 cahracters."),
+        widget=forms.Textarea
+    )
+
     class Meta:
         model = Link
         fields = ['title', 'link', 'description']
@@ -30,4 +36,3 @@ class LinkForm(forms.ModelForm):
                     "<a class='btn btn-default' href='{% url \"home\" %}'>Cancel</a>")
             )
         )
-

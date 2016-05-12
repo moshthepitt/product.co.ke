@@ -27,7 +27,7 @@ class Link(models.Model):
     title = models.CharField(_("Title"), max_length=255, blank=False)
     link = models.URLField(_("URL"), max_length=2083, blank=False, unique=True)
     description = models.TextField(_("Description"), blank=False, default="", help_text=_(
-        "A short description.  Please limit to 300 cahracters."))
+        "A short description.  Please limit to 750 cahracters."))
     active = models.BooleanField(_("Active"), default=True)
     ghost = models.BooleanField(_("Ghost"), default=False)  # used to fight spam
 
